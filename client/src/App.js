@@ -1,9 +1,12 @@
-import './App.css';
+import NavBar from "./NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Chat</h1>
+    <div>
+      <NavBar />
+      
     </div>
   );
 }
