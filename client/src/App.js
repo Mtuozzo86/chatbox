@@ -4,11 +4,13 @@ import Profile from "./Profile";
 import ChatField from "./ChatField";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import TopNavbar from "./TopNavbar";
 
 function App() {
 
   return (
     <div>
+      <TopNavbar />
       <Routes>
         <Route path="chat" element={<ChatField />} />
         <Route path="user" element={<Profile />} />
