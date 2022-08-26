@@ -1,0 +1,27 @@
+REACT ROUTER BOOTSTRAP
+
+Installation
+For React Router v6:
+
+npm install -S react-router-bootstrap
+For React Router v4 or v5 (see rr-v4 branch):
+
+npm install -S react-router-bootstrap@rr-v4
+For React Router v3 or lower (see rr-v3 branch):
+
+npm install -S react-router-bootstrap@rr-v3
+Usage
+Wrap your React Bootstrap element in a <LinkContainer> to make it behave like a React Router <Link>
+
+<LinkContainer> accepts same parameters as React Router's <NavLink>
+
+Example
+Following plain React Bootstrap component
+
+<Button href="/foo/bar">Foo</Button>
+becomes
+
+import { LinkContainer } from 'react-router-bootstrap'
+<LinkContainer to="/foo/bar">
+  <Button>Foo</Button>
+</LinkContainer>
