@@ -2,6 +2,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 function Create() {
   const [userName, setUserName] = useState("");
@@ -15,10 +18,7 @@ function Create() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ userName, password }),
-    }).then(
-      setUserName(""),
-      setPassword("")
-      )
+    }).then(setUserName(""), setPassword(""));
   }
 
   return (
@@ -28,7 +28,7 @@ function Create() {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control
-          value={userName}
+            value={userName}
             onChange={(e) => setUserName(e.target.value)}
             type="text"
             placeholder="Pick a name"
@@ -38,17 +38,22 @@ function Create() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
-          value={password}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="outline-primary" type="submit">
           Submit
         </Button>
       </Form>
+
+          <p className="text-center">
+            Already have an account? Sign in <Link to="/login">here</Link>
+          </p>
+
     </Container>
   );
 }
