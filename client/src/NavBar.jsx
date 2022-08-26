@@ -6,22 +6,24 @@ import { AiOutlineUser } from "react-icons/ai";
 import { AiFillWechat } from "react-icons/ai";
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <Navbar bg="primary" variant="dark" fixed="bottom">
       <Container className="justify-content-center gap-2">
-        <Button className="flex-fill">
-          <NavLink to="chat">
+        <LinkContainer to="chat">
+          <Button className="flex-fill" >
             <AiFillWechat size={26} color="white" />
-          </NavLink>
-        </Button>
+          </Button>
+        </LinkContainer>
 
-        <Button className="flex-fill">
-          <NavLink to="user">
-            <AiOutlineUser size={26} color="white"/>
-          </NavLink>
-        </Button>
+        <LinkContainer to="user">
+          <Button className="flex-fill" >
+            <AiOutlineUser size={26} color="white" />
+          </Button>
+        </LinkContainer>
       </Container>
     </Navbar>
   );

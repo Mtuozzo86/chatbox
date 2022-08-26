@@ -8,15 +8,27 @@ function Create() {
   const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    fetch("/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userName, password }),
+    }).then(
+      setUserName(""),
+      setPassword("")
+      )
   }
 
   return (
     <Container>
+      CREATE
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control
+          value={userName}
             onChange={(e) => setUserName(e.target.value)}
             type="text"
             placeholder="Pick a name"
@@ -26,14 +38,13 @@ function Create() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
+          value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

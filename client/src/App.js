@@ -5,6 +5,7 @@ import ChatField from "./ChatField";
 import { Routes, Route } from "react-router-dom";
 import TopNavbar from "./TopNavbar";
 import Create from "./Create";
+import Login from "./Login"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="chat" element={<ChatField />} />
         <Route path="user" element={<Profile />} />
         <Route path="create" element={<Create />} />
+        <Route path="login" element={<Login />} />
       </Routes>
       <NavBar />
     </div>

@@ -14,9 +14,12 @@ function TopNavbar() {
         <DropdownButton
           align="end"
           id="dropdown-basic-button"
-          title="Dropdown button"
+          title="Options"
         >
           <LinkContainer to="create">
+            <Dropdown.Item>Create acct</Dropdown.Item>
+          </LinkContainer>
+          <LinkContainer to="login">
             <Dropdown.Item>Login</Dropdown.Item>
           </LinkContainer>
         </DropdownButton>
