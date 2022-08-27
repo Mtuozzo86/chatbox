@@ -3,10 +3,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Container from "react-bootstrap/esm/Container";
-import { NavLink } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
 function TopNavbar() {
+  function handleLogout(params) {
+    fetch('/logout', {
+      method: "DELETE"
+    })
+    
+  }
   return (
     <Navbar bg="light">
       <Container>
@@ -19,7 +24,7 @@ function TopNavbar() {
             <Dropdown.Item>Login</Dropdown.Item>
           </LinkContainer>
           <Dropdown.Divider />
-          <Dropdown.Item onClick={()=>console.log("logout button")}>Logout</Dropdown.Item>
+          <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
         </DropdownButton>
       </Container>
     </Navbar>

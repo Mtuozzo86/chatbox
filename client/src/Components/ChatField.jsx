@@ -3,7 +3,7 @@ import Chatroom from './Chatroom'
 
 function ChatField() {
   return (
-    <div><Chatroom/></div>
+    <div><Chatroom /></div>
   )
 }
 
