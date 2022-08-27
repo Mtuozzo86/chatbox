@@ -6,17 +6,20 @@ import { Routes, Route } from "react-router-dom";
 import TopNavbar from "./TopNavbar";
 import Create from "./Create";
 import Login from "./Login"
+import { useState} from "react"
 
 
 function App() {
+  const [user, setUser] = useState(null)
+  
   return (
     <div>
       <TopNavbar />
       <Routes>
         <Route path="chat" element={<ChatField />} />
-        <Route path="user" element={<Profile />} />
+        <Route path="user" element={<Profile user={user}/>} />
         <Route path="create" element={<Create />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login onHandleUser={setUser}/>} />
       </Routes>
       <NavBar />
     </div>

@@ -3,10 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ onHandleUser }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const history = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,7 +18,18 @@ function Login() {
         "Content-type": "application/json",
       },
       body: JSON.stringify({ userName, password }),
-    }).then(setUserName(""), setPassword(""));
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(
+          (data) => onHandleUser(data.user_name),
+          setUserName(""),
+          setPassword(""),
+          history("/chat")
+        );
+      } else {
+        r.json().then((errors) => console.log(errors));
+      }
+    });
   }
 
   return (
