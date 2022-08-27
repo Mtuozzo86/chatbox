@@ -2,7 +2,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 
-function Profile({user = "Anonymous User"}) {
+function Profile({ user = "Anonymous User"}) {
+  console.log(user)
   return (
     <Card>
       <Card.Body>

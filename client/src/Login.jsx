@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 function Login({ onHandleUser }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState("")
   const history = useNavigate()
 
   function handleSubmit(e) {
@@ -27,7 +28,7 @@ function Login({ onHandleUser }) {
           history("/chat")
         );
       } else {
-        r.json().then((errors) => console.log(errors));
+        r.json().then((errors) => setErrors(errors));
       }
     });
   }
@@ -58,6 +59,7 @@ function Login({ onHandleUser }) {
           Login
         </Button>
       </Form>
+      {errors && <p>{errors.error}</p>}
     </Container>
   );
 }

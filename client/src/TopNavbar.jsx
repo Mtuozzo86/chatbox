@@ -11,17 +11,15 @@ function TopNavbar() {
     <Navbar bg="light">
       <Container>
         <Navbar.Brand>Chat</Navbar.Brand>
-        <DropdownButton
-          align="end"
-          id="dropdown-basic-button"
-          title="Options"
-        >
+        <DropdownButton align="end" id="dropdown-basic-button" title="Account">
           <LinkContainer to="create">
-            <Dropdown.Item>Create acct</Dropdown.Item>
+            <Dropdown.Item>Create</Dropdown.Item>
           </LinkContainer>
           <LinkContainer to="login">
             <Dropdown.Item>Login</Dropdown.Item>
           </LinkContainer>
+          <Dropdown.Divider />
+          <Dropdown.Item onClick={()=>console.log("logout button")}>Logout</Dropdown.Item>
         </DropdownButton>
       </Container>
     </Navbar>

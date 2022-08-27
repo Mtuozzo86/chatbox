@@ -1,8 +1,9 @@
 import React from 'react'
+import Chatroom from './Chatroom'
 
 function ChatField() {
   return (
-    <div>ChatField</div>
+    <div><Chatroom/></div>
   )
 }
 
