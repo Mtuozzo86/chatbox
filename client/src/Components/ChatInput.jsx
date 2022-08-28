@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+
 function ChatInput({ roomTitle = "The Main Group" }) {
   useEffect(() => {
     fetch("/chat_messages")
@@ -42,7 +43,7 @@ function ChatInput({ roomTitle = "The Main Group" }) {
     <>
       <Container fluid>
         <div className="mb-4 p-1 border-bottom">{roomTitle}</div>
-        <div className="overflow-auto">{listOfMessages}</div>
+        <div className="overflow-auto pb-5">{listOfMessages}</div>
       </Container>
       <Container className="fixed-bottom p-2">
         <Form onSubmit={handleSubmit}>
