@@ -9,7 +9,7 @@ function Chatroom({ roomTitle = "The Main Group" }) {
 
   return (
     <Container>
-      <LinkContainer to="/room">
+      <LinkContainer to="room">
         <Row>
           <Col className="col-2 text-center">
             <FaUsers size={24} />

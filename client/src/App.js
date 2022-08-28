@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./Components/NavBar";
 import Profile from "./Components/Profile";
-import ChatField from "./Components/ChatField";
+import ChatRooms from "./Components/ChatRooms";
 import TopNavbar from "./Components/TopNavbar";
 import Create from "./Util/Create";
 import Login from "./Util/Login";
@@ -18,19 +17,28 @@ function App() {
       .then((info) => setUser(info.user_name));
   }, []);
 
-
+  if (!user) {
+    return (
+      <>
+        <TopNavbar />
+        <Routes>
+          <Route path="create" element={<Create />} />
+          <Route path="login" element={<Login onHandleUser={setUser} />} />
+        </Routes>
+      </>
+    );
+  }
 
   return (
     <div>
       <TopNavbar />
       <Routes>
         <Route path="room" element={<ChatInput />} />
-        <Route path="chat" element={<ChatField />} />
+        <Route path="/" element={<ChatRooms />} />
         <Route path="user" element={<Profile user={user || undefined} />} />
         <Route path="create" element={<Create />} />
         <Route path="login" element={<Login onHandleUser={setUser} />} />
       </Routes>
-      <NavBar />
     </div>
   );
 }

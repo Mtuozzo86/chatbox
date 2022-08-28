@@ -13,13 +13,13 @@ function NavBar() {
   return (
     <Navbar bg="primary" variant="dark" fixed="bottom">
       <Container className="justify-content-center gap-2">
-        <LinkContainer to="chat">
+        <LinkContainer to="/">
           <Button className="flex-fill" >
             <AiFillWechat size={26} color="white" />
           </Button>
         </LinkContainer>
 
-        <LinkContainer to="user">
+        <LinkContainer to="/user">
           <Button className="flex-fill" >
             <AiOutlineUser size={26} color="white" />
           </Button>

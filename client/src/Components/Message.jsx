@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 
-function Message({body}) {
+function Message({ body, user }) {
+
+
   return (
-    <div>{body}</div>
-  )
+    <div>
+      <div>
+        <em>{user}</em>
+      </div>
+      <div>{body}</div>
+    </div>
+  );
 }
 
-export default Message
+export default Message;
