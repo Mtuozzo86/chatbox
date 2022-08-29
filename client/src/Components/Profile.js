@@ -9,7 +9,7 @@ function Profile({ user = "Anonymous User" }) {
     <>
       <Card>
         <Card.Body>
-          <Card.Header>{user}</Card.Header>
+          <Card.Header>{user.user_name}</Card.Header>
           <Card.Text>
             Some quick example text to build on the card title and make up the
             bulk of the card's content.

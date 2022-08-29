@@ -4,12 +4,15 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Container from "react-bootstrap/esm/Container";
 import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate} from 'react-router-dom'
 
 function TopNavbar() {
+  const navigate = useNavigate()
   function handleLogout(params) {
     fetch('/logout', {
       method: "DELETE"
     })
+    .then(navigate('/login'))
     
   }
   return (
