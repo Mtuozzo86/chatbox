@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 
 function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
+
   useEffect(() => {
     fetch("/chat_messages")
       .then((r) => r.json())
@@ -13,19 +14,21 @@ function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
 
   const [messages, setMessages] = useState([]);
 
-
   const listOfMessages = messages.map((message) => {
     return (
       <Message
         key={message.id}
         body={message.body}
         userName={message.user.user_name}
-        message={message}
         messageUserId={message.user.id}
         currentUser={currentUser.id}
       />
     );
   });
+
+  function handleSend(params) {
+    setMessages([...messages, params])
+  }
 
 
   return (
@@ -40,7 +43,7 @@ function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
           </Card.Body>
         </Card>
       </Container>
-      <SendMessage />
+      <SendMessage onSend={ handleSend} />
     </>
   );
 }

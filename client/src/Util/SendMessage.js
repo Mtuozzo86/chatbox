@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-function SendMessage() {
+function SendMessage({onSend}) {
     const [inputMessage, setInputMessage] = useState("");
     
       function handleSubmit(e) {
@@ -16,7 +16,8 @@ function SendMessage() {
             "Content-type": "application/json",
           },
           body: JSON.stringify({ inputMessage }),
-        });
+        }).then(r => r.json())
+        .then(message => onSend(message))
       }
 
   return (

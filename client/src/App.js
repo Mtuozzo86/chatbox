@@ -6,7 +6,6 @@ import ChatRooms from "./Components/ChatRooms";
 import TopNavbar from "./Components/TopNavbar";
 import Create from "./Util/Create";
 import Login from "./Util/Login";
-import Chatroom from "./Components/Chatroom";
 import ChatInput from "./Components/ChatInput";
 
 function App() {
