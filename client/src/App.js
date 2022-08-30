@@ -9,15 +9,16 @@ import Login from "./Util/Login";
 import ChatInput from "./Components/ChatInput";
 
 function App() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   useEffect(() => {
     fetch("/me")
       .then((r) => r.json())
       .then((info) => {
         setUser(info)
-        
       });
   }, []);
+        
+
 
 
   return (
