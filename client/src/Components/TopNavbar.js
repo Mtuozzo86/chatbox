@@ -20,10 +20,10 @@ function TopNavbar() {
       <Container>
         <Navbar.Brand>Chat</Navbar.Brand>
         <DropdownButton align="end" id="dropdown-basic-button" title="Account">
-          <LinkContainer to="create">
+          <LinkContainer to="/create">
             <Dropdown.Item>Create</Dropdown.Item>
           </LinkContainer>
-          <LinkContainer to="login">
+          <LinkContainer to="/login">
             <Dropdown.Item>Login</Dropdown.Item>
           </LinkContainer>
           <Dropdown.Divider />

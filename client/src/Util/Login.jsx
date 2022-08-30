@@ -25,7 +25,7 @@ function Login({ onHandleUser }) {
           (data) => onHandleUser(data.user_name),
           setUserName(""),
           setPassword(""),
-          history("/")
+          history("/rooms")
         );
       } else {
         r.json().then((errors) => setErrors(errors));
