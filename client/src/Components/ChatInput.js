@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Message from "./Message";
 import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
+import TopNavbar from "./TopNavbar";
 
 function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
 
@@ -33,6 +34,7 @@ function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
 
   return (
     <>
+      <TopNavbar />
       <Container fluid>
         <div className="mb-1 p-2 card-header">
           <h5>{roomTitle}</h5>

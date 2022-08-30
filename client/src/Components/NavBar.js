@@ -13,7 +13,7 @@ function NavBar() {
   return (
     <Navbar bg="primary" variant="dark" fixed="bottom">
       <Container className="justify-content-center gap-2">
-        <LinkContainer to="/">
+        <LinkContainer to="/rooms">
           <Button className="flex-fill" >
             <AiFillWechat size={26} color="white" />
           </Button>

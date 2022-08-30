@@ -1,11 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
-import Chatroom from "./Chatroom";
+import ChatroomName from "./ChatroomName";
 
 function ChatRooms() {
   return (
     <div>
-      <Chatroom />
+      <ChatroomName />
       <NavBar />
     </div>
   );

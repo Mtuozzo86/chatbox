@@ -3,7 +3,8 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import NavBar from "./NavBar";
 
-function Profile({ user = "Anonymous User" }) {
+function Profile({ user }) {
+console.log(user)
 
   return (
     <>

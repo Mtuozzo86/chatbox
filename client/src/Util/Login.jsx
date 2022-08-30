@@ -22,7 +22,7 @@ function Login({ onHandleUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then(
-          (data) => onHandleUser(data.user_name),
+          (data) => onHandleUser(data),
           setUserName(""),
           setPassword(""),
           history("/rooms")

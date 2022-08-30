@@ -6,12 +6,12 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import TopNavbar from "./TopNavbar";
 
-function Chatroom({ roomTitle = "The Main Group" }) {
+function ChatroomName({ roomTitle = "The Main Group" }) {
   return (
     <>
       <TopNavbar />
       <Container>
-        <LinkContainer to="room">
+        <LinkContainer to="/room">
           <Row>
             <Col className="col-2 text-center">
               <FaUsers size={24} />
@@ -24,4 +24,4 @@ function Chatroom({ roomTitle = "The Main Group" }) {
   );
 }
 
-export default Chatroom;
+export default ChatroomName;

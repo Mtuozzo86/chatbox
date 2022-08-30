@@ -5,20 +5,24 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-function SendMessage({onSend}) {
-    const [inputMessage, setInputMessage] = useState("");
-    
-      function handleSubmit(e) {
-        e.preventDefault();
-        fetch("/chat_messages", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ inputMessage }),
-        }).then(r => r.json())
-        .then(message => onSend(message))
-      }
+function SendMessage({ onSend }) {
+  const [inputMessage, setInputMessage] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/chat_messages", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ inputMessage }),
+    })
+      .then((r) => r.json())
+      .then((message) => {
+        onSend(message)
+        setInputMessage("")
+      });
+  }
 
   return (
     <Container className="fixed-bottom p-2">
