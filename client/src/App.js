@@ -4,11 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./Components/Profile";
 import ChatRooms from "./Components/ChatRooms";
 import Welcome from "./Components/Welcome";
-import TopNavbar from "./Components/TopNavbar";
 import Create from "./Util/Create";
 import Login from "./Util/Login";
-import ChatInput from "./Components/ChatInput";
-import Chatroom from "./Components/ChatroomName";
+import ChatRoom from "./Components/ChatRoom";
 
 function App({ cable }) {
   const navigate = useNavigate();
@@ -19,12 +17,13 @@ function App({ cable }) {
       if (r.ok) {
         r.json()
           .then((info) => setUser(info))
-          .then(navigate("rooms"));
+          // .then(navigate("rooms"));
       } else {
         navigate("/");
       }
     });
   }, []);
+
 
 
   return (
@@ -34,7 +33,7 @@ function App({ cable }) {
         <Route path="login" element={<Login onHandleUser={setUser} />} />
         <Route path="/" element={<Welcome />} />
         <Route path="rooms" element={<ChatRooms user={user} />} />
-        <Route path="room" element={<ChatInput currentUser={user} />} />
+        <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user} />} />
         <Route path="user" element={<Profile user={user}/>} />
       </Routes>
     </div>

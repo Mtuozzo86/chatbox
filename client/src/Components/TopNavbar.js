@@ -12,7 +12,7 @@ function TopNavbar() {
     fetch('/logout', {
       method: "DELETE"
     })
-    .then(navigate('/login'))
+    .then(navigate('/'))
     
   }
   return (

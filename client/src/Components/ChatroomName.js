@@ -4,14 +4,16 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import TopNavbar from "./TopNavbar";
+import { useParams } from "react-router-dom";
 
-function ChatroomName({ roomTitle = "The Main Group" }) {
+
+function ChatroomName({ roomId, roomTitle }) {
+
   return (
     <>
       
       <Container>
-        <LinkContainer to="/room">
+        <LinkContainer to={`/rooms/${roomId}`}>
           <Row>
             <Col className="col-2 text-center">
               <FaUsers size={24} />

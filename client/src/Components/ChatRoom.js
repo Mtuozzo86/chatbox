@@ -4,9 +4,11 @@ import Message from "./Message";
 import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
+import { useParams} from 'react-router-dom'
 
-function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
-
+function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
+  const params = useParams()
+  console.log(params)
   useEffect(() => {
     fetch("/chat_messages")
       .then((r) => r.json())
@@ -50,4 +52,4 @@ function ChatInput({ currentUser, roomTitle = "The Main Group" }) {
   );
 }
 
-export default ChatInput;
+export default ChatRoom;

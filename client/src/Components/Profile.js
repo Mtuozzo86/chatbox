@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import NavBar from "./NavBar";
 
 function Profile({ user }) {
-console.log(user)
 
   return (
     <>
