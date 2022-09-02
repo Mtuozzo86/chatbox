@@ -1,5 +1,5 @@
 class Conversation < ApplicationRecord
-   belongs_to :user
    has_many :chat_messages
+   has_many :users, through: :chat_messages
 
 end
