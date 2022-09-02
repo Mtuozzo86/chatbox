@@ -9,7 +9,7 @@ import TopNavbar from "./TopNavbar";
 function ChatroomName({ roomTitle = "The Main Group" }) {
   return (
     <>
-      <TopNavbar />
+      
       <Container>
         <LinkContainer to="/room">
           <Row>

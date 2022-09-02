@@ -11,10 +11,8 @@ import ChatInput from "./Components/ChatInput";
 import Chatroom from "./Components/ChatroomName";
 
 function App({ cable }) {
-  console.log(cable)
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -35,7 +33,7 @@ function App({ cable }) {
         <Route path="create" element={<Create />} />
         <Route path="login" element={<Login onHandleUser={setUser} />} />
         <Route path="/" element={<Welcome />} />
-        <Route path="rooms" element={<ChatRooms />} />
+        <Route path="rooms" element={<ChatRooms user={user} />} />
         <Route path="room" element={<ChatInput currentUser={user} />} />
         <Route path="user" element={<Profile user={user}/>} />
       </Routes>

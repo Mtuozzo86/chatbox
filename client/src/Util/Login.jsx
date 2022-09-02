@@ -25,6 +25,7 @@ function Login({ onHandleUser }) {
           (data) => onHandleUser(data),
           setUserName(""),
           setPassword(""),
+          //goes to list of rooms and conversations <ChatRooms /> 
           history("/rooms")
         );
       } else {

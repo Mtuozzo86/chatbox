@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     def show
       if current_user
-        render json: current_user
+        render json: current_user, include: :conversations
       else
         render json: {message: "no user logged in from show action"}, status: :unauthorized
       end
