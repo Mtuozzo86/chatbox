@@ -5,17 +5,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-function SendMessage({ onSend }) {
+function SendMessage({ onSend, roomId}) {
   const [inputMessage, setInputMessage] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/chat_messages", {
+    fetch(`/conversations/${roomId}/chat_messages`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ inputMessage }),
+      body: JSON.stringify({ inputMessage, roomId }),
     })
       .then((r) => r.json())
       .then((message) => {

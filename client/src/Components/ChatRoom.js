@@ -49,7 +49,7 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
           </Card.Body>
         </Card>
       </Container>
-      <SendMessage onSend={handleSend} />
+      <SendMessage onSend={handleSend} roomId={ params.roomId} />
     </>
   );
 }
