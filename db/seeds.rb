@@ -8,6 +8,8 @@
 
 mike = User.create(user_name: "Mike", password: "rooster")
 homer = User.create(user_name: "Homer", password: "rooster")
-Conversation.create(room_name: "Test Room")
-ChatMessage.create(body: "Hello", user_id: mike.id, conversation_id: 1)
-ChatMessage.create(body: "D'OH", user_id: homer.id, conversation_id: 1)
+room1 = Conversation.create(room_name: "Test Room")
+room2 = Conversation.create(room_name: "Test Room2")
+room1.chat_messages.create(body: "Hello", user_id: mike.id)
+room1.chat_messages.create(body: "D'OH", user_id: homer.id)
+room1.chat_messages.create(body: "I'm in test room 1", user_id: homer.id)

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import ChatroomName from "./ChatroomName";
 import TopNavbar from "./TopNavbar";
-import { useParams } from "react-router-dom";
+
 function ChatRooms({ user }) {
   const [listOfRooms, setListofRooms] = useState([]);
 
   useEffect(() => {
-    fetch(`/me`)
+    fetch(`/conversations`)
       .then((r) => r.json())
-      .then((user) => setListofRooms(user.conversations));
+      .then((user) => setListofRooms(user));
   }, []);
 
   const rooms = listOfRooms.map((room) => {
