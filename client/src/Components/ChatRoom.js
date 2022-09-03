@@ -4,15 +4,18 @@ import Message from "./Message";
 import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
-import { useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
 function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
-  const params = useParams()
-  console.log(params)
+  const params = useParams();
+
   useEffect(() => {
-    fetch("/chat_messages")
+    fetch(`/conversations/${params.roomId}/chat_messages`)
       .then((r) => r.json())
-      .then((messages) => setMessages(messages));
+      .then((messages) => {
+        console.log(messages)
+        setMessages(messages)
+      });
   }, []);
 
   const [messages, setMessages] = useState([]);
@@ -30,9 +33,8 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
   });
 
   function handleSend(params) {
-    setMessages([...messages, params])
+    setMessages([...messages, params]);
   }
-
 
   return (
     <>
@@ -47,7 +49,7 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
           </Card.Body>
         </Card>
       </Container>
-      <SendMessage onSend={ handleSend} />
+      <SendMessage onSend={handleSend} />
     </>
   );
 }

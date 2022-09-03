@@ -6,6 +6,8 @@ class ConversationsController < ApplicationController
 
     def show
         room = Conversation.find(params[:id])
-        render json: room
+        render json: room, include: [:users, :chat_messages]
     end
+
+
 end

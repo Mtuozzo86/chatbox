@@ -1,9 +1,10 @@
 class ChatMessagesController < ApplicationController
     
     def index
-        messages = ChatMessage.all
-        render json: messages, include: :user
+        room = Conversation.find_by(id: params[:conversation_id])
+        render json: room.chat_messages, include: :user
     end
+
     
     def create
         current_user
