@@ -17,10 +17,11 @@ class ChatMessagesController < ApplicationController
 
     
     def create
+
         current_user
         message = ChatMessage.create(body: params[:inputMessage], user_id: current_user.id, conversation_id: params[:roomId]) 
-        render json: message
-  
+        render json: message, include: :user
+        
     end
  
         

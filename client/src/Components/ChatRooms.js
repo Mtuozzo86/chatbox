@@ -7,9 +7,9 @@ function ChatRooms({ user }) {
   const [listOfRooms, setListofRooms] = useState([]);
 
   useEffect(() => {
-    fetch(`/conversations`)
+    fetch(`/me`)
       .then((r) => r.json())
-      .then((user) => setListofRooms(user));
+      .then((user) => setListofRooms(user.conversations));
   }, []);
 
   const rooms = listOfRooms.map((room) => {

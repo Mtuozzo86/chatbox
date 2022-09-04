@@ -13,13 +13,12 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
     fetch(`/conversations/${params.roomId}/chat_messages`)
       .then((r) => r.json())
       .then((messages) => {
-        console.log(messages)
         setMessages(messages)
       });
   }, []);
 
   const [messages, setMessages] = useState([]);
-
+console.log("messages from state", messages[0])
   const listOfMessages = messages.map((message) => {
     return (
       <Message
@@ -33,6 +32,7 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
   });
 
   function handleSend(params) {
+    console.log(params)
     setMessages([...messages, params]);
   }
 
