@@ -1,4 +1,6 @@
 class ConversationsController < ApplicationController
+    before_action :authorized?
+    
     def index
         rooms = Conversation.all
         render json: rooms, include: [:users, :chat_messages]

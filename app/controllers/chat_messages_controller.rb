@@ -1,11 +1,6 @@
 class ChatMessagesController < ApplicationController
 
-    
-    # original attempt
-    # def index
-    #     room = Conversation.find_by(id: params[:conversation_id])
-    #     render json: room, include: :chat_messages
-    # end
+    before_action :authorized?, only: :index
 
     def index
         room = Conversation.find_by(id: params[:conversation_id])
