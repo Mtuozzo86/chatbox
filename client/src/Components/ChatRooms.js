@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import ChatroomName from "./ChatroomName";
 import TopNavbar from "./TopNavbar";
 
-function ChatRooms({ user }) {
+function ChatRooms() {
   const [listOfRooms, setListofRooms] = useState([]);
 
   useEffect(() => {
