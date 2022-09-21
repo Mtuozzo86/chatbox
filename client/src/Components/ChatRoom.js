@@ -6,7 +6,7 @@ import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
 import { useParams } from "react-router-dom";
 
-function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
+function ChatRoom({ cable, currentUser, roomTitle = "The Main Group" }) {
   const params = useParams();
 
   useEffect(() => {
@@ -18,7 +18,6 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
   }, []);
 
   const [messages, setMessages] = useState([]);
-console.log("messages from state", messages[0])
   const listOfMessages = messages.map((message) => {
     return (
       <Message
