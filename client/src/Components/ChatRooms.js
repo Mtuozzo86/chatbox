@@ -24,7 +24,7 @@ function ChatRooms() {
     <div>
       <TopNavbar />
       {rooms}
-      <CreateRoom />
+      {/* <CreateRoom /> */}
       <NavBar />
     </div>
   );

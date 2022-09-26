@@ -11,7 +11,7 @@ module ApplicationCable
     def find_verified_user
       if verified_user = User.find(cookies.encrypted["_session_id"]["user_id"])
         verified_user
-        byebug
+        
       else
         reject_unauthorized_connection
       end
