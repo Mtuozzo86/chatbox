@@ -3,8 +3,6 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 function Create() {
   const [userName, setUserName] = useState("");

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import ChatroomName from "./ChatroomName";
 import TopNavbar from "./TopNavbar";
+import CreateRoom from "../Util/CreateRoom";
+
 
 function ChatRooms() {
   const [listOfRooms, setListofRooms] = useState([]);
@@ -22,7 +24,7 @@ function ChatRooms() {
     <div>
       <TopNavbar />
       {rooms}
-
+      <CreateRoom />
       <NavBar />
     </div>
   );
