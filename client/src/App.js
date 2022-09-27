@@ -8,7 +8,7 @@ import Create from "./Util/Create";
 import Login from "./Util/Login";
 import ChatRoom from "./Components/ChatRoom";
 
-function App({ cable }) {
+function App() {
 
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -33,8 +33,8 @@ function App({ cable }) {
         <Route path="create" element={<Create />} />
         <Route path="login" element={<Login onHandleUser={setUser} />} />
         <Route path="/" element={<Welcome />} />
-        <Route path="rooms" element={<ChatRooms user={user} cable={cable} />} />
-        <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user} cable={cable} />} />
+        <Route path="rooms" element={<ChatRooms user={user}/>} />
+        <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user}/>} />
         <Route path="user" element={<Profile user={user}/>} />
       </Routes>
     </div>

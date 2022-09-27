@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CableProvider>
-        <App cable={cable} />
+        <App />
       </CableProvider>
     </BrowserRouter>
   </React.StrictMode>
