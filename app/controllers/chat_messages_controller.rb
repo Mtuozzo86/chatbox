@@ -12,12 +12,17 @@ class ChatMessagesController < ApplicationController
 
     
     def create
-
         current_user
-        message = ChatMessage.create(body: params[:inputMessage], user_id: current_user.id, conversation_id: params[:roomId]) 
+        message = ChatMessage.create(body: params[:inputMessage], user_id: current_user.id, conversation_id: params[:roomId])
+        conversation = message.conversation
+        ConversationsChannel.broadcast_to(conversation, {
+            conversation: conversation,
+            users: conversation.users,
+            messages: conversation.chat_messages
+        })
         render json: message, include: :user
-        
     end
+
  
         
         
