@@ -2,9 +2,8 @@ class ConversationsChannel < ApplicationCable::Channel
   def subscribed
     @conversation = Conversation.find(params[:id])
     stream_for @conversation
-    puts "messages"
-puts @conversation.chat_messages
-    # stream_from "conversation_#{params[:id]}"
+    
+    puts @conversation.chat_messages
   end
   
   def received(data)

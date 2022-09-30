@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { CableContext } from "../context/cable";
 import Container from "react-bootstrap/Container";
 import Message from "./Message";
 import Card from "react-bootstrap/Card";
@@ -6,14 +7,31 @@ import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
 import { useParams } from "react-router-dom";
 
-function ChatRoom({ cable, currentUser, roomTitle = "The Main Group" }) {
+function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
   const params = useParams();
+  const cableContext = useContext(CableContext);
+  // If you're unfamiliar with using context, the above code
+  // has nothing to do with Action Cable specifically, it's how we
+  // grant access to our CableContext in the component that we're
+  // working with
+  useEffect(() => {
+    const channel = cableContext.cable.subscriptions.create(
+      {
+        channel: "ConversationsChannel",
+        id: params.roomId
+      },
+      {
+        received: (data) =>
+          console.log("somethingjf;afkdls;jafdlk;jfasdl;fjslkd;"),
+      }
+    );
+  }, []);
 
   useEffect(() => {
     fetch(`/conversations/${params.roomId}/chat_messages`)
       .then((r) => r.json())
       .then((messages) => {
-        setMessages(messages)
+        setMessages(messages);
       });
   }, []);
 
@@ -31,7 +49,7 @@ function ChatRoom({ cable, currentUser, roomTitle = "The Main Group" }) {
   });
 
   function handleSend(params) {
-    console.log(params)
+    console.log(params);
     setMessages([...messages, params]);
   }
 
@@ -48,7 +66,7 @@ function ChatRoom({ cable, currentUser, roomTitle = "The Main Group" }) {
           </Card.Body>
         </Card>
       </Container>
-      <SendMessage onSend={handleSend} roomId={ params.roomId} />
+      <SendMessage onSend={handleSend} roomId={params.roomId} />
     </>
   );
 }
