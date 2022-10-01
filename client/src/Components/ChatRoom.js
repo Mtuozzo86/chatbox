@@ -8,12 +8,10 @@ import TopNavbar from "./TopNavbar";
 import { useParams } from "react-router-dom";
 
 function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
+  const [messages, setMessages] = useState([]);
   const params = useParams();
   const cableContext = useContext(CableContext);
-  // If you're unfamiliar with using context, the above code
-  // has nothing to do with Action Cable specifically, it's how we
-  // grant access to our CableContext in the component that we're
-  // working with
+
   useEffect(() => {
     const channel = cableContext.cable.subscriptions.create(
       {
@@ -35,7 +33,7 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
       });
   }, []);
 
-  const [messages, setMessages] = useState([]);
+  
   const listOfMessages = messages.map((message) => {
     return (
       <Message
