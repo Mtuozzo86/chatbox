@@ -1,29 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { CableContext } from "../context/cable";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { RiKakaoTalkLine } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
-import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/esm/Container";
 
 function Welcome() {
-
-  const cableContext = useContext(CableContext)
-  // If you're unfamiliar with using context, the above code
-  // has nothing to do with Action Cable specifically, it's how we
-  // grant access to our CableContext in the component that we're
-  // working with
-  useEffect(() => {
-    cableContext.cable.subscriptions.create({
-    channel: "ConversationChannel",
-    id: 1
-  },
-  {
-    received: (data) => console.log(data)
-  })
-  }, [])
-
-
 
   const linkStyle = {
     textDecoration: "none",
