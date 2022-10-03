@@ -7,6 +7,7 @@ ruby '2.7.4'
 gem 'hirb' 
 # ADD THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 gem 'awesome_print'
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
