@@ -4,10 +4,13 @@ class ChatMessage < ApplicationRecord
 
    validates :body, presence: true
 
-   # def serialize
-   #    serialized_message = ActiveModelSerializers::Adapter::Json.new(
-   #    ChatMessageSerializer.new(self)
-   #    ).serializable_hash
-   #    serialized_message[:message]
-   #  end
+
+   def serialize
+      ChatMessageSerializer.new(self)
+   end
+
+     def broadcast
+    ActionCable.server.broadcast("conversation_#{self.conversation_id}", ChatMessageSerializer.new(self))
+      end
+
 end

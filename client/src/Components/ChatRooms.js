@@ -11,6 +11,7 @@ function ChatRooms() {
   useEffect(() => {
     fetch(`/me`)
       .then((r) => r.json())
+      // .then((user) => console.log(user));
       .then((user) => setListofRooms(user.conversations));
   }, []);
 

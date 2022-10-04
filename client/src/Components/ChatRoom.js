@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
   const [messages, setMessages] = useState([]);
 
+
   
   const params = useParams();
   const cableContext = useContext(CableContext);
@@ -21,7 +22,7 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
         id: params.roomId
       },
       {
-        received: (data) => console.log("something from the transmittion:", data)
+        received: (data) => setMessages(previous => [...previous, data])
           
       }
     );
@@ -33,7 +34,7 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
       .then((messages) => {
         setMessages(messages);
       });
-  }, [roomId]);
+  }, [params.roomId]);
 
   
   const listOfMessages = messages.map((message) => {
