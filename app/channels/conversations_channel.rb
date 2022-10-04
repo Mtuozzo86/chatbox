@@ -6,11 +6,6 @@ class ConversationsChannel < ApplicationCable::Channel
   end
   
   def received(data)
-    puts data
-    # ConversationsChannel.broadcast_to(@conversation, {conversation: @conversation, users: @conversation.users, messages: @conversation.chat_messages})
-    # puts data
-    # message = Message.create(data)
-    # ActionCable.server.broadcast("conversation_channel", message)
   end
 
   def unsubscribed

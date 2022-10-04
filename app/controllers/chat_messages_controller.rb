@@ -15,14 +15,14 @@ class ChatMessagesController < ApplicationController
         current_user
         message = ChatMessage.create(body: params[:inputMessage], user_id: current_user.id, conversation_id: params[:roomId])
         conversation = message.conversation
-        serialized_message = message.serialize
+        # serialized_message = message.serialize
         # ConversationsChannel.broadcast_to(conversation, {
         #     conversation: conversation,
         #     users: conversation.users,
         #     messages: conversation.chat_messages
         # })
-        ActionCable.server.broadcast("conversation_#{message.conversation.id}", serialized_message)
-        byebug
+        ActionCable.server.broadcast("conversation_#{message.conversation.id}", message)
+        
         render json: message, include: :user
     end
 
