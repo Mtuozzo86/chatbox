@@ -22,13 +22,16 @@ function ChatRoom({ currentUser, roomTitle = "The Main Group" }) {
         id: params.roomId
       },
       {
-        received: (data) => setMessages(previous => [...previous, data])
-          
+        received: (data) => (
+          setMessages(previous => [...previous, data]),
+          console.log("transmitted")
+        )
       }
     );
-  }, []);
+  }, [params.roomId]);
 
   useEffect(() => {
+    console.log("setMessages on page load useEffect")
     fetch(`/conversations/${params.roomId}/chat_messages`)
       .then((r) => r.json())
       .then((messages) => {
