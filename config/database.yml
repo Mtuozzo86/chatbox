@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: chat-app_production
-  username: chat-app
-  password: <%= ENV['chat-app_DATABASE_PASSWORD'] %>
+  # database: chat-app_production
+  # username: chat-app
+  password: <%= ENV['DATABASE_URL'] %>
