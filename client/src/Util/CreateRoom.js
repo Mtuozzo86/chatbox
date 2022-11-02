@@ -3,15 +3,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
-import { RiKakaoTalkLine } from "react-icons/ri";
 
-
-import { Link } from "react-router-dom";
 function CreateRoom() {
     const [roomName, setRoomName] = useState("")
 
     function handleSubmit(e) {
-        e.preventDefault()
+      e.preventDefault()
+      
     }
 
 

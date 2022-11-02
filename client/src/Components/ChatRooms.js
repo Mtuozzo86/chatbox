@@ -6,6 +6,7 @@ import CreateRoom from "../Util/CreateRoom";
 import { AiFillPlusCircle } from "react-icons/ai";
 import Stack from "react-bootstrap/Stack";
 import Container from "react-bootstrap/esm/Container";
+import { LinkContainer } from "react-router-bootstrap";
 
 function ChatRooms() {
   const [listOfRooms, setListofRooms] = useState([]);
@@ -27,13 +28,14 @@ function ChatRooms() {
     <div>
       <TopNavbar />
       {rooms}
-
-      <div className="position-relative" style={{height: 450}}>
-        <AiFillPlusCircle
-          className="position-absolute bottom-0 end-0"
-          color="#0d6efd"
-          size={50}
-        />
+      <div className="position-relative" style={{ height: 450 }}>
+        <LinkContainer to="/createroom">
+          <AiFillPlusCircle
+            className="position-absolute bottom-0 end-0 me-2"
+            color="#0d6efd"
+            size={55}
+          />
+        </LinkContainer>
       </div>
       <NavBar />
     </div>

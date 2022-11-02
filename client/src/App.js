@@ -7,9 +7,9 @@ import Welcome from "./Components/Welcome";
 import Create from "./Util/Create";
 import Login from "./Util/Login";
 import ChatRoom from "./Components/ChatRoom";
+import CreateRoom from "./Util/CreateRoom";
 
 function App() {
-  console.log('hi')
 
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -36,7 +36,8 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="rooms" element={<ChatRooms user={user}/>} />
         <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user}/>} />
-        <Route path="user" element={<Profile user={user}/>} />
+        <Route path="user" element={<Profile user={user} />} />
+        <Route path="/createroom" element={<CreateRoom />} />
       </Routes>
     </div>
   );
