@@ -9,6 +9,7 @@ import Login from "./Util/Login";
 import ChatRoom from "./Components/ChatRoom";
 
 function App() {
+  console.log('hi')
 
   const navigate = useNavigate();
   const [user, setUser] = useState({});

@@ -1,13 +1,10 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 import { AiOutlineUser } from "react-icons/ai";
 import { AiFillWechat } from "react-icons/ai";
 import Button from "react-bootstrap/Button";
-import { NavLink } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
