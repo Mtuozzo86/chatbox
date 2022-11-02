@@ -2,10 +2,10 @@ class ConversationsController < ApplicationController
     before_action :authorized?
 
     def create
-        current_user
-        convo = Conversation.create(room_name: params[:roomName])
-        current_user.conversations.create(convo)
-        render json: convo
+        render json: current_user.conversations.create(room_name: params[:roomName], user_id: current_user.id)
+        # convo = Conversation.create(room_name: params[:roomName], )
+        # render json: convo
+        # byebug
     end
     
     def index
