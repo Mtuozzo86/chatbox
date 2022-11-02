@@ -9,7 +9,13 @@ function CreateRoom() {
 
     function handleSubmit(e) {
       e.preventDefault()
-      
+      fetch("/conversations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ roomName }),
+      });
     }
 
 

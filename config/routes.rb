@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show]
   
   
-  resources :conversations, only: [:index, :show] do
+  resources :conversations, only: [:index, :show, :create] do
     resources :chat_messages, only: [:index, :create]
   end
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
