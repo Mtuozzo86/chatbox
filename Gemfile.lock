@@ -80,6 +80,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     hirb (0.7.3)
+    hiredis (0.6.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jsonapi-renderer (0.2.2)
@@ -170,6 +171,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   hirb
+  hiredis
   listen (~> 3.3)
   pg
   puma (~> 5.0)
@@ -183,4 +185,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.6
+   2.3.13

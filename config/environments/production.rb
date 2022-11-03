@@ -34,9 +34,9 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
   config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
-  config.action_cable.mount_path = "/cable"
-  config.action_cable.url = 'wss://mikes-first-chat.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ 'http://mikes-first-chat.herokuapp.com', /http:\/\/mikes-first-chat.herokuapp.com.*/ ]
+  # config.action_cable.mount_path = "/cable"
+  # config.action_cable.url = 'wss://mikes-first-chat.herokuapp.com/cable'
+  # config.action_cable.allowed_request_origins = [ 'http://mikes-first-chat.herokuapp.com', /http:\/\/mikes-first-chat.herokuapp.com.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -49,7 +49,7 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_cache_store, {  url: ENV['REDIS_URL']}
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
