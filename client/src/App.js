@@ -14,6 +14,7 @@ function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [createdRoom, setCreatedRoom] = useState('')
+  const [selectedRoom, setSelectedRoom] = useState('')
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -28,14 +29,15 @@ function App() {
   }, []);
 
 
+
   return (
     <div>
       <Routes>
         <Route path="create" element={<Create />} />
         <Route path="login" element={<Login onHandleUser={setUser} />} />
         <Route path="/" element={<Welcome />} />
-        <Route path="rooms" element={<ChatRooms user={user}/>} />
-        <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user}/>} />
+        <Route path="rooms" element={<ChatRooms user={user} onChooseRoom={setSelectedRoom } />} />
+        <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user} roomTitle={selectedRoom} />} />
         <Route path="user" element={<Profile user={user} />} />
         <Route path="/createroom" element={<CreateRoom onCreateRoom={setCreatedRoom}/>} />
       </Routes>

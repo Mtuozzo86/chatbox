@@ -7,7 +7,7 @@ import { useState } from "react";
 function CreateRoom({onCreateRoom}) {
     const [roomName, setRoomName] = useState("")
 
-    function handleSubmit(e) {
+  function handleSubmit(e) {
       e.preventDefault()
       fetch("/conversations", {
         method: "POST",
@@ -15,7 +15,7 @@ function CreateRoom({onCreateRoom}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ roomName }),
-      }.then(onCreateRoom(roomName)));
+      }).then(onCreateRoom(roomName));
     }
 
 

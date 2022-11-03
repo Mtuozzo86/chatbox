@@ -5,7 +5,7 @@ import TopNavbar from "./TopNavbar";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { LinkContainer } from "react-router-bootstrap";
 
-function ChatRooms() {
+function ChatRooms({user, onChooseRoom}) {
   const [listOfRooms, setListofRooms] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function ChatRooms() {
 
   const rooms = listOfRooms.map((room) => {
     return (
-      <ChatroomName key={room.id} roomTitle={room.room_name} roomId={room.id} />
+      <ChatroomName key={room.id} roomTitle={room.room_name} roomId={room.id} user={user} onChooseRoom={onChooseRoom } />
     );
   });
 

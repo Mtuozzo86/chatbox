@@ -5,7 +5,6 @@ class ConversationsController < ApplicationController
         render json: current_user.conversations.create(room_name: params[:roomName], user_id: current_user.id)
         # convo = Conversation.create(room_name: params[:roomName], )
         # render json: convo
-        # byebug
     end
     
     def index

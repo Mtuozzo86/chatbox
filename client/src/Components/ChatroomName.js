@@ -5,15 +5,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
+import ChatRoom from "./ChatRoom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 
-function ChatroomName({ roomId, roomTitle }) {
+function ChatroomName({ roomId, roomTitle, onChooseRoom}) {
+  function handleChooseRoom(params) {
+    onChooseRoom(params)
+  }
 
   return (
     <>
-      
       <Container>
-        <LinkContainer to={`/rooms/${roomId}`}>
+          <LinkContainer onClick={() => handleChooseRoom(roomTitle)} to={`/rooms/${roomId}`}>
           <Row>
             <Col className="col-2 text-center">
               <FaUsers size={24} />
