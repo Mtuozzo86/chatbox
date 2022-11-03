@@ -13,6 +13,7 @@ function App() {
 
   const navigate = useNavigate();
   const [user, setUser] = useState({});
+  const [createdRoom, setCreatedRoom] = useState('')
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,7 +28,6 @@ function App() {
   }, []);
 
 
-
   return (
     <div>
       <Routes>
@@ -37,7 +37,7 @@ function App() {
         <Route path="rooms" element={<ChatRooms user={user}/>} />
         <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user}/>} />
         <Route path="user" element={<Profile user={user} />} />
-        <Route path="/createroom" element={<CreateRoom />} />
+        <Route path="/createroom" element={<CreateRoom onCreateRoom={setCreatedRoom}/>} />
       </Routes>
     </div>
   );

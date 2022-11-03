@@ -10,12 +10,12 @@ class ConversationsController < ApplicationController
     
     def index
         rooms = Conversation.all
-        render json: rooms, include: [:users, :chat_messages]
+        render json: rooms, include: [:chat_messages]
     end
 
     def show
         room = Conversation.find(params[:id])
-        render json: room, include: [:users, :chat_messages]
+        render json: room, include: [:user, :chat_messages]
     end
 
 

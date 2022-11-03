@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import ChatroomName from "./ChatroomName";
 import TopNavbar from "./TopNavbar";
-import CreateRoom from "../Util/CreateRoom";
 import { AiFillPlusCircle } from "react-icons/ai";
-import Stack from "react-bootstrap/Stack";
-import Container from "react-bootstrap/esm/Container";
 import { LinkContainer } from "react-router-bootstrap";
 
 function ChatRooms() {
@@ -14,7 +11,6 @@ function ChatRooms() {
   useEffect(() => {
     fetch(`/me`)
       .then((r) => r.json())
-      // .then((user) => console.log(user));
       .then((user) => setListofRooms(user.conversations));
   }, []);
 

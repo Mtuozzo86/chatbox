@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
 
-function CreateRoom() {
+function CreateRoom({onCreateRoom}) {
     const [roomName, setRoomName] = useState("")
 
     function handleSubmit(e) {
@@ -15,7 +15,7 @@ function CreateRoom() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ roomName }),
-      });
+      }.then(onCreateRoom(roomName)));
     }
 
 
