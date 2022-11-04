@@ -4,7 +4,7 @@ class ChatMessagesController < ApplicationController
 
     def index
         room = Conversation.find_by(id: params[:conversation_id])
-        render json: room.chat_messages, include: [:user, :conversation]
+        render json: room.chat_messages, include: [:user]
     end
          
 

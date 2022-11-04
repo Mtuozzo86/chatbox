@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       
       user = User.find(params[:id])
       if user
-        render json: user, include: :conversations
+        render json: user, include: [:conversations, :chat_messages]
       else
         render json: { error: "Not authorized" }, status: :unauthorized
       end

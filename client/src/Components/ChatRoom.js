@@ -9,6 +9,8 @@ import { useParams } from "react-router-dom";
 
 function ChatRoom({ currentUser, roomTitle}) {
   const [messages, setMessages] = useState([]);
+  const [roomName, setRoomName] = useState('')
+
 
   
   const params = useParams();
@@ -22,15 +24,19 @@ function ChatRoom({ currentUser, roomTitle}) {
       },
       {
         received: (data) => (
-          setMessages(previous => [...previous, data]),
-          console.log("transmitted")
+          setMessages(previous => [...previous, data])
         )
       }
     );
   }, [params.roomId]);
 
   useEffect(() => {
-    console.log("setMessages on page load useEffect")
+    fetch(`/conversations/${params.roomId}`)
+      .then(r => r.json())
+      .then(data => setRoomName(data.room_name))
+  }, [])
+
+  useEffect(() => {
     fetch(`/conversations/${params.roomId}/chat_messages`)
       .then((r) => r.json())
       .then((messages) => {
@@ -60,7 +66,7 @@ function ChatRoom({ currentUser, roomTitle}) {
       <TopNavbar />
       <Container fluid>
         <div className="mb-1 p-2 card-header">
-          <h5>{roomTitle}</h5>
+          <h5>{roomName}</h5>
         </div>
         <Card>
           <Card.Body className="overflow-auto" style={{ height: 450 }}>

@@ -2,8 +2,8 @@ class ConversationsController < ApplicationController
     before_action :authorized?
 
     def create
-        render json: current_user.conversations.create(room_name: params[:roomName], user_id: current_user.id)
-        # byebug
+        render json: current_user.conversations.create(room_name: params[:roomName])
+        byebug
         # convo = Conversation.create(room_name: params[:roomName])
         # render json: convo
     end
@@ -15,7 +15,7 @@ class ConversationsController < ApplicationController
 
     def show
         room = Conversation.find(params[:id])
-        render json: room, include: [:user, :chat_messages]
+        render json: room, include: [:chat_messages]
     end
 
 
