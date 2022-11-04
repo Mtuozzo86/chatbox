@@ -33,13 +33,22 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="create" element={<Create />} />
+        <Route path="create" element={<Create onHandleUser={setUser} />} />
         <Route path="login" element={<Login onHandleUser={setUser} />} />
         <Route path="/" element={<Welcome />} />
-        <Route path="rooms" element={<ChatRooms user={user} onChooseRoom={setSelectedRoom } />} />
-        <Route path="/rooms/:roomId" element={<ChatRoom currentUser={user} roomTitle={selectedRoom} />} />
+        <Route
+          path="rooms"
+          element={<ChatRooms user={user} onChooseRoom={setSelectedRoom} />}
+        />
+        <Route
+          path="/rooms/:roomId"
+          element={<ChatRoom currentUser={user} roomTitle={selectedRoom} />}
+        />
         <Route path="user" element={<Profile user={user} />} />
-        <Route path="/createroom" element={<CreateRoom onCreateRoom={setCreatedRoom}/>} />
+        <Route
+          path="/createroom"
+          element={<CreateRoom onCreateRoom={setCreatedRoom} />}
+        />
       </Routes>
     </div>
   );

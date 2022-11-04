@@ -1,30 +1,33 @@
-import React from 'react'
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function CreateRoom({onCreateRoom}) {
-    const [roomName, setRoomName] = useState("")
+function CreateRoom({ onCreateRoom }) {
+  const [roomName, setRoomName] = useState("");
+  const history = useNavigate();
 
   function handleSubmit(e) {
-      e.preventDefault()
-      fetch("/conversations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ roomName }),
-      }).then(onCreateRoom(roomName));
-    }
-
+    e.preventDefault();
+    fetch("/conversations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ roomName }),
+    })
+      .then(onCreateRoom(roomName))
+      .then(history("/rooms"));
+  }
 
   return (
     <div>
       <Container>
         CREATE ROOM
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" >
+          <Form.Group className="mb-3">
             <Form.Label>Room Name</Form.Label>
             <Form.Control
               value={roomName}
@@ -53,4 +56,4 @@ function CreateRoom({onCreateRoom}) {
   );
 }
 
-export default CreateRoom
+export default CreateRoom;

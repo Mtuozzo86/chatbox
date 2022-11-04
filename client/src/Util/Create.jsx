@@ -2,11 +2,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Create() {
+function Create({onHandleUser}) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState("");
+  const history = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,7 +18,20 @@ function Create() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ userName, password }),
-    }).then(setUserName(""), setPassword(""));
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(
+          (data) => onHandleUser(data),
+          setUserName(""),
+          setPassword(""),
+          //goes to list of rooms and conversations <ChatRooms /> 
+          history("/rooms")
+        );
+      } else {
+        r.json().then((errors) => setErrors(errors));
+      }
+    });
+
   }
 
   return (
@@ -48,9 +63,9 @@ function Create() {
         </Button>
       </Form>
 
-          <p className="text-center">
-            Already have an account? Sign in <Link to="/login">here</Link>
-          </p>
+      <p className="text-center">
+        Already have an account? Sign in <Link to="/login">here</Link>
+      </p>
 
     </Container>
   );
