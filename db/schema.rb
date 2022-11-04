@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_11_04_135337) do
-=======
-ActiveRecord::Schema.define(version: 2022_11_04_024734) do
->>>>>>> fe6b3550265ab5b2e238c46dde3b2ece958d0575
+ActiveRecord::Schema.define(version: 2022_11_04_152234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +27,11 @@ ActiveRecord::Schema.define(version: 2022_11_04_024734) do
     t.string "room_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "admin_id"
+  end
+
+  create_table "conversations_users", id: false, force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
