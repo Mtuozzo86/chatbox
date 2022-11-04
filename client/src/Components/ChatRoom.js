@@ -7,7 +7,7 @@ import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
 import { useParams } from "react-router-dom";
 
-function ChatRoom({ currentUser, roomTitle}) {
+function ChatRoom({ currentUser}) {
   const [messages, setMessages] = useState([]);
   const [roomName, setRoomName] = useState('')
 

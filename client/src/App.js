@@ -10,25 +10,21 @@ import ChatRoom from "./Components/ChatRoom";
 import CreateRoom from "./Util/CreateRoom";
 
 function App() {
-
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  const [createdRoom, setCreatedRoom] = useState('')
-  const [selectedRoom, setSelectedRoom] = useState('')
+  const [createdRoom, setCreatedRoom] = useState("");
+  const [selectedRoom, setSelectedRoom] = useState("");
 
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json()
-          .then((info) => setUser(info))
-          // .then(navigate("rooms"));
+        r.json().then((info) => setUser(info));
+        // .then(navigate("rooms"));
       } else {
         navigate("/");
       }
     });
   }, []);
-
-
 
   return (
     <div>
@@ -42,13 +38,10 @@ function App() {
         />
         <Route
           path="/rooms/:roomId"
-          element={<ChatRoom currentUser={user} roomTitle={selectedRoom} />}
+          element={<ChatRoom currentUser={user}/>}
         />
         <Route path="user" element={<Profile user={user} />} />
-        <Route
-          path="/createroom"
-          element={<CreateRoom onCreateRoom={setCreatedRoom} />}
-        />
+        <Route path="/createroom" element={<CreateRoom />} />
       </Routes>
     </div>
   );
