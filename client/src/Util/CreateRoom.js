@@ -18,9 +18,21 @@ function CreateRoom({ onCreateRoom }) {
       },
       body: JSON.stringify({ roomName }),
     })
-      .then(onCreateRoom(roomName))
-      .then(history("/rooms"));
+    .then(history("/rooms"))
+    .then(onCreateRoom(roomName))
   }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   fetch("/conversations", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ roomName }),
+  //   })
+  //     .then(onCreateRoom(roomName))
+  //     .then(history("/rooms"));
+  // }
 
   return (
     <div>
