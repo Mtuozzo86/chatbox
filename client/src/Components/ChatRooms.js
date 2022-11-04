@@ -6,7 +6,6 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import { LinkContainer } from "react-router-bootstrap";
 
 function ChatRooms({ user, onChooseRoom }) {
-  console.log(user)
   const [listOfRooms, setListofRooms] = useState([]);
 
   useEffect(() => {

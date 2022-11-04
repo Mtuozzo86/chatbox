@@ -14,7 +14,7 @@ function App() {
   const [user, setUser] = useState({});
   const [createdRoom, setCreatedRoom] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
-
+console.log(user)
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {

@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
 
     def create
         render json: current_user.conversations.create(room_name: params[:roomName])
-        byebug
+        
         # convo = Conversation.create(room_name: params[:roomName])
         # render json: convo
     end

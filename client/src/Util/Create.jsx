@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Create({onHandleUser}) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState("");
+
   const history = useNavigate();
 
   function handleSubmit(e) {
@@ -15,7 +15,7 @@ function Create({onHandleUser}) {
     fetch("/users", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
       },
       body: JSON.stringify({ userName, password }),
     }).then((r) => {
@@ -27,11 +27,8 @@ function Create({onHandleUser}) {
           //goes to list of rooms and conversations <ChatRooms /> 
           history("/rooms")
         );
-      } else {
-        r.json().then((errors) => setErrors(errors));
       }
     });
-
   }
 
   return (
