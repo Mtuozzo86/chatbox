@@ -8,13 +8,14 @@ import Create from "./Util/Create";
 import Login from "./Util/Login";
 import ChatRoom from "./Components/ChatRoom";
 import CreateRoom from "./Util/CreateRoom";
+import AddToRoom from "./Util/AddToRoom";
 
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [createdRoom, setCreatedRoom] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
-console.log(user)
+  console.log(user);
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -38,10 +39,11 @@ console.log(user)
         />
         <Route
           path="/rooms/:roomId"
-          element={<ChatRoom currentUser={user}/>}
+          element={<ChatRoom currentUser={user} />}
         />
         <Route path="user" element={<Profile user={user} />} />
         <Route path="/createroom" element={<CreateRoom />} />
+        <Route path="/addcontact" element={<AddToRoom />} />
       </Routes>
     </div>
   );

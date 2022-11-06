@@ -6,7 +6,6 @@ import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
 import { useParams } from "react-router-dom";
-import { BsArrowLeftSquare } from "react-icons/bs";
 import { AiOutlineUserAdd } from "react-icons/ai";
 
 function ChatRoom({ currentUser }) {
