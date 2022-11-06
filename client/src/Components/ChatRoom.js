@@ -6,13 +6,13 @@ import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
 import { useParams } from "react-router-dom";
+import { BsArrowLeftSquare } from "react-icons/bs";
+import { AiOutlineUserAdd } from "react-icons/ai";
 
-function ChatRoom({ currentUser}) {
+function ChatRoom({ currentUser }) {
   const [messages, setMessages] = useState([]);
-  const [roomName, setRoomName] = useState('')
+  const [roomName, setRoomName] = useState("");
 
-
-  
   const params = useParams();
   const cableContext = useContext(CableContext);
 
@@ -20,21 +20,19 @@ function ChatRoom({ currentUser}) {
     const channel = cableContext.cable.subscriptions.create(
       {
         channel: "ConversationsChannel",
-        id: params.roomId
+        id: params.roomId,
       },
       {
-        received: (data) => (
-          setMessages(previous => [...previous, data])
-        )
+        received: (data) => setMessages((previous) => [...previous, data]),
       }
     );
   }, [params.roomId]);
 
   useEffect(() => {
     fetch(`/conversations/${params.roomId}`)
-      .then(r => r.json())
-      .then(data => setRoomName(data.room_name))
-  }, [])
+      .then((r) => r.json())
+      .then((data) => setRoomName(data.room_name));
+  }, []);
 
   useEffect(() => {
     fetch(`/conversations/${params.roomId}/chat_messages`)
@@ -44,7 +42,6 @@ function ChatRoom({ currentUser}) {
       });
   }, [params.roomId]);
 
-  
   const listOfMessages = messages.map((message) => {
     return (
       <Message
@@ -65,8 +62,9 @@ function ChatRoom({ currentUser}) {
     <>
       <TopNavbar />
       <Container fluid>
-        <div className="mb-1 p-2 card-header">
-          <h5>{roomName}</h5>
+        <div className="mb-1 p-3 card-header d-flex">
+          <h5 className="flex-grow-1">{roomName}</h5>
+          <AiOutlineUserAdd color="01BAEF" size={30} />
         </div>
         <Card>
           <Card.Body className="overflow-auto" style={{ height: 450 }}>
