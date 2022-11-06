@@ -3,9 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function AddToRoom() {
+    const location = useLocation()
+    const  roomId  = location.state
+    console.log(roomId)
   const [contact, setContact] = useState("");
   return (
     <div>

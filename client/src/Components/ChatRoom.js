@@ -5,14 +5,17 @@ import Message from "./Message";
 import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
-import { useParams } from "react-router-dom";
+
+import { useParams, Link } from "react-router-dom";
 import { AiOutlineUserAdd } from "react-icons/ai";
+
 
 function ChatRoom({ currentUser }) {
   const [messages, setMessages] = useState([]);
   const [roomName, setRoomName] = useState("");
 
   const params = useParams();
+  console.log(params)
   const cableContext = useContext(CableContext);
 
   useEffect(() => {
@@ -63,7 +66,9 @@ function ChatRoom({ currentUser }) {
       <Container fluid>
         <div className="mb-1 p-3 card-header d-flex">
           <h5 className="flex-grow-1">{roomName}</h5>
-          <AiOutlineUserAdd color="01BAEF" size={30} />
+          <Link to='/addcontact' state={params.roomId}>
+            <AiOutlineUserAdd color="01BAEF" size={30} />
+          </Link>
         </div>
         <Card>
           <Card.Body className="overflow-auto" style={{ height: 450 }}>

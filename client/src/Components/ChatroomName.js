@@ -17,7 +17,7 @@ function ChatroomName({ roomId, roomTitle, onChooseRoom}) {
   return (
     <>
       <Container>
-          <LinkContainer onClick={() => handleChooseRoom(roomTitle)} to={`/rooms/${roomId}`}>
+          <LinkContainer to={`/rooms/${roomId}`}>
           <Row>
             <Col className="col-2 text-center">
               <FaUsers size={24} />
