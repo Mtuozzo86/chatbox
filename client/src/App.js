@@ -13,8 +13,6 @@ import AddToRoom from "./Util/AddToRoom";
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  const [createdRoom, setCreatedRoom] = useState("");
-  const [selectedRoom, setSelectedRoom] = useState("");
   console.log(user);
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -33,10 +31,7 @@ function App() {
         <Route path="create" element={<Create onHandleUser={setUser} />} />
         <Route path="login" element={<Login onHandleUser={setUser} />} />
         <Route path="/" element={<Welcome />} />
-        <Route
-          path="rooms"
-          element={<ChatRooms user={user} onChooseRoom={setSelectedRoom} />}
-        />
+        <Route path="rooms" element={<ChatRooms user={user} />} />
         <Route
           path="/rooms/:roomId"
           element={<ChatRoom currentUser={user} />}
