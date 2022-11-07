@@ -34,9 +34,9 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
   config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
-  # config.action_cable.mount_path = "/cable"
-  # config.action_cable.url = 'wss://mikes-first-chat.herokuapp.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://mikes-first-chat.herokuapp.com', /http:\/\/mikes-first-chat.herokuapp.com.*/ ]
+  config.action_cable.mount_path = "/cable"
+  config.action_cable.url = 'wss://chatbox-vj2i.onrender.com/cable'
+  config.action_cable.allowed_request_origins = [ 'https://chatbox-vj2i.onrender.com', /http:\/\/chatbox-vj2i.onrender.com.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
