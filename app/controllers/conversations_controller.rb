@@ -7,6 +7,13 @@ class ConversationsController < ApplicationController
         # convo = Conversation.create(room_name: params[:roomName])
         # render json: convo
     end
+
+    def addcontact
+        room = Conversation.find_by(id: params[:roomId])
+        user = User.find_by(user_name: params[:contact])
+        room.users << user
+        
+    end
     
     def index
         rooms = Conversation.all
