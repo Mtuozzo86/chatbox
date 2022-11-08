@@ -4,11 +4,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Container from "react-bootstrap/esm/Container";
 import { LinkContainer } from "react-router-bootstrap";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 function TopNavbar({ roomName, backArrow }) {
-  
   const navigate = useNavigate();
   function handleLogout() {
     fetch("/logout", {
@@ -20,8 +19,15 @@ function TopNavbar({ roomName, backArrow }) {
       <Container>
         <Navbar.Brand>
           {roomName ? (
-            <div>
-              <IoMdArrowRoundBack color="01BAEF" size={30} /> {roomName}
+            <div className="d-flex gap-5">
+              <div onClick={() => navigate(-1)}>
+                <IoMdArrowRoundBack
+                  color="01BAEF"
+                  size={30}
+                  className="gap-3"
+                />
+              </div>
+              {roomName}
             </div>
           ) : (
             "Chat"

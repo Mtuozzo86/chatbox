@@ -63,7 +63,7 @@ function ChatRoom({ currentUser }) {
 
   return (
     <>
-      <TopNavbar roomName={roomName} backArrow={IoMdArrowRoundBack} />
+      <TopNavbar roomName={roomName} />
       <Container fluid>
         <div className="mb-1 p-3 card-header d-flex justify-content-end">
           {/* <h5 className="flex-grow-1">{roomName}</h5> */}
