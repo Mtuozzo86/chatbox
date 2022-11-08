@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
 
     def show
         room = Conversation.find(params[:id])
-        render json: room, include: [:chat_messages]
+        render json: room, include: [:chat_messages, :users]
     end
 
 

@@ -9,14 +9,18 @@ function AddToRoom() {
   const location = useLocation();
   const roomId = location.state;
   const [contact, setContact] = useState("");
-  function handleSubmit(params) {
+
+  function handleSubmit(e) {
+    e.preventDefault()
     fetch(`/conversations/${roomId}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({ contact, roomId }),
-    });
+    })
+      .then(resp => resp.json())
+    .then(data => console.log(data))
   }
 
   return (
