@@ -11,6 +11,17 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def addcontact
+      room = Conversation.find_by(id: params[:roomId])
+      user = User.find_by(user_name: params[:contact])
+      if user
+      room.users << user
+      render json: user
+      else
+      render json: {error: 'nobody found'}, status: :not_found
+      end
+    end
+
     def show
       
       user = User.find(params[:id])

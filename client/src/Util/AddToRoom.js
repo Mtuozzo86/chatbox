@@ -9,18 +9,25 @@ function AddToRoom() {
   const location = useLocation();
   const roomId = location.state;
   const [contact, setContact] = useState("");
+  const [errors, setErrors] = useState('')
+  const [success, setSuccess] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch(`/conversations/${roomId}`, {
-      method: "POST",
+    fetch(`/users/${contact}`, {
+      method: "Post",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({ contact, roomId }),
     })
-      .then(resp => resp.json())
-    .then(data => console.log(data))
+      .then(resp => {
+        if (resp.ok) {
+        setSuccess('good')
+        } else {
+          setErrors('nope')
+      }
+    })
   }
 
   return (
@@ -40,6 +47,7 @@ function AddToRoom() {
             Submit
           </Button>
         </Form>
+        {errors ? errors : success}
       </Container>
     </div>
   );
