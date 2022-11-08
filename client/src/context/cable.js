@@ -7,7 +7,7 @@ function CableProvider({ children }) {
     const actionCableUrl =
       process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
         ? "ws://localhost:3000/cable"
-        : "wss://https://chatbox-vj2i.onrender.com/cable";
+        : "wss://chatbox-vj2i.onrender.com/cable";
 
     const CableApp = {}
     CableApp.cable = ActionCable.createConsumer(actionCableUrl)
