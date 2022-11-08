@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import TopNavbar from "../Components/TopNavbar";
+import NavBar from "../Components/NavBar";
 
 function CreateRoom({ onCreateRoom }) {
   const [roomName, setRoomName] = useState("");
@@ -21,21 +23,10 @@ function CreateRoom({ onCreateRoom }) {
     .then(history("/rooms"))
     .then(onCreateRoom(roomName))
   }
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   fetch("/conversations", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ roomName }),
-  //   })
-  //     .then(onCreateRoom(roomName))
-  //     .then(history("/rooms"));
-  // }
 
   return (
     <div>
+      <TopNavbar/>
       <Container>
         CREATE ROOM
         <Form onSubmit={handleSubmit}>
@@ -48,22 +39,12 @@ function CreateRoom({ onCreateRoom }) {
               placeholder="Name your room"
             />
           </Form.Group>
-
-          {/* <Form.Group className="mb-3" >
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Password"
-            />
-          </Form.Group> */}
-
           <Button variant="outline-primary" type="submit">
             Submit
           </Button>
         </Form>
       </Container>
+      <NavBar />
     </div>
   );
 }

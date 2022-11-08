@@ -4,21 +4,29 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Container from "react-bootstrap/esm/Container";
 import { LinkContainer } from "react-router-bootstrap";
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { IoMdArrowRoundBack } from "react-icons/io";
 
-function TopNavbar() {
-  const navigate = useNavigate()
-  function handleLogout(params) {
-    fetch('/logout', {
-      method: "DELETE"
-    })
-    .then(navigate('/'))
-    
+function TopNavbar({ roomName, backArrow }) {
+  
+  const navigate = useNavigate();
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(navigate("/"));
   }
   return (
     <Navbar bg="light">
       <Container>
-        <Navbar.Brand>Chat</Navbar.Brand>
+        <Navbar.Brand>
+          {roomName ? (
+            <div>
+              <IoMdArrowRoundBack color="01BAEF" size={30} /> {roomName}
+            </div>
+          ) : (
+            "Chat"
+          )}
+        </Navbar.Brand>
         <DropdownButton align="end" id="dropdown-basic-button" title="Account">
           <LinkContainer to="/create">
             <Dropdown.Item>Create</Dropdown.Item>

@@ -2,8 +2,10 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
+import TopNavbar from "../Components/TopNavbar";
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import NavBar from "../Components/NavBar";
 
 function AddToRoom() {
   const location = useLocation();
@@ -31,26 +33,30 @@ function AddToRoom() {
   }
 
   return (
-    <div>
-      <Container>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Add a contact</Form.Label>
-            <Form.Control
-              value={contact}
-              onChange={(e) => setContact(e.target.value)}
-              type="text"
-              placeholder="Add Contact"
-              required
-            />
-          </Form.Group>
-          <Button variant="outline-primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-        {errors ? errors : success}
-      </Container>
-    </div>
+    <>
+      <TopNavbar />
+      <div>
+        <Container>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Add a contact</Form.Label>
+              <Form.Control
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                type="text"
+                placeholder="Add Contact"
+                required
+              />
+            </Form.Group>
+            <Button variant="outline-primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+          {errors ? errors : success}
+        </Container>
+      </div>
+      <NavBar />
+    </>
   );
 }
 

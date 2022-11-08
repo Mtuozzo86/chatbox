@@ -8,6 +8,7 @@ import TopNavbar from "./TopNavbar";
 
 import { useParams, Link } from "react-router-dom";
 import { AiOutlineUserAdd } from "react-icons/ai";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 
 function ChatRoom({ currentUser }) {
@@ -62,12 +63,12 @@ function ChatRoom({ currentUser }) {
 
   return (
     <>
-      <TopNavbar />
+      <TopNavbar roomName={roomName} backArrow={IoMdArrowRoundBack} />
       <Container fluid>
-        <div className="mb-1 p-3 card-header d-flex">
-          <h5 className="flex-grow-1">{roomName}</h5>
-          <Link to='/addcontact' state={params.roomId}>
-            <AiOutlineUserAdd color="01BAEF" size={30} />
+        <div className="mb-1 p-3 card-header d-flex justify-content-end">
+          {/* <h5 className="flex-grow-1">{roomName}</h5> */}
+          <Link to="/addcontact" state={params.roomId}>
+            <AiOutlineUserAdd className="text-end" color="01BAEF" size={30} />
           </Link>
         </div>
         <Card>
