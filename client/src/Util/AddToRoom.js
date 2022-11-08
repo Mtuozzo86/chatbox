@@ -9,7 +9,7 @@ function AddToRoom() {
   const location = useLocation();
   const roomId = location.state;
   const [contact, setContact] = useState("");
-  const [errors, setErrors] = useState('')
+  const [errors, setErrors] = useState([])
   const [success, setSuccess] = useState('')
 
   function handleSubmit(e) {
@@ -25,7 +25,7 @@ function AddToRoom() {
         if (resp.ok) {
         setSuccess('good')
         } else {
-          setErrors('nope')
+          resp.json().then(data => setErrors(data.error))
       }
     })
   }
@@ -41,6 +41,7 @@ function AddToRoom() {
               onChange={(e) => setContact(e.target.value)}
               type="text"
               placeholder="Add Contact"
+              required
             />
           </Form.Group>
           <Button variant="outline-primary" type="submit">

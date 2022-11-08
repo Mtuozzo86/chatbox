@@ -15,7 +15,7 @@ function ChatRoom({ currentUser }) {
   const [roomName, setRoomName] = useState("");
 
   const params = useParams();
-  console.log(params)
+  
   const cableContext = useContext(CableContext);
 
   useEffect(() => {

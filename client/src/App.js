@@ -13,7 +13,7 @@ import AddToRoom from "./Util/AddToRoom";
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  console.log(user);
+  
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {

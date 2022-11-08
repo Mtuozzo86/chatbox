@@ -11,10 +11,11 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    # Add a contact to a chat room
     def addcontact
       room = Conversation.find_by(id: params[:roomId])
       user = User.find_by(user_name: params[:contact])
-      if user
+      if user.valid?
       room.users << user
       render json: user
       else
