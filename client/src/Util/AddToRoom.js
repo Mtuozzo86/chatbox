@@ -25,7 +25,7 @@ function AddToRoom() {
     })
       .then(resp => {
         if (resp.ok) {
-        setSuccess('good')
+          resp.json().then(data => console.log(data))
         } else {
           resp.json().then(data => setErrors(data.error))
       }

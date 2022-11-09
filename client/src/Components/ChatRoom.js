@@ -1,22 +1,20 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { CableContext } from "../context/cable";
 import Container from "react-bootstrap/Container";
 import Message from "./Message";
 import Card from "react-bootstrap/Card";
 import SendMessage from "../Util/SendMessage";
 import TopNavbar from "./TopNavbar";
-
 import { useParams, Link } from "react-router-dom";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-
 function ChatRoom({ currentUser }) {
   const [messages, setMessages] = useState([]);
   const [roomName, setRoomName] = useState("");
-
+  const bottom = useRef();
   const params = useParams();
-  
+
   const cableContext = useContext(CableContext);
 
   useEffect(() => {
@@ -45,28 +43,35 @@ function ChatRoom({ currentUser }) {
       });
   }, [params.roomId]);
 
+  //scroll to bottom when new messages are added
+  useEffect(() => {
+    bottom.current?.scrollIntoView()
+  },[messages])
+
   const listOfMessages = messages.map((message) => {
     return (
-      <Message
-        key={message.id}
-        body={message.body}
-        userName={message.user.user_name}
-        messageUserId={message.user.id}
-        currentUser={currentUser.id}
-      />
+      <>
+        <Message
+          key={message.id}
+          body={message.body}
+          userName={message.user.user_name}
+          messageUserId={message.user.id}
+          currentUser={currentUser.id}
+        />
+        <div ref={bottom}></div>
+      </>
     );
   });
 
   function handleSend(params) {
-    setMessages([...messages, params]);
+    setMessages([...messages, params])
   }
 
   return (
     <>
       <TopNavbar roomName={roomName} />
       <Container fluid>
-        <div className="mb-1 p-3 card-header d-flex justify-content-end">
-          {/* <h5 className="flex-grow-1">{roomName}</h5> */}
+        <div className="p-3 card-header d-flex justify-content-end">
           <Link to="/addcontact" state={params.roomId}>
             <AiOutlineUserAdd className="text-end" color="01BAEF" size={30} />
           </Link>
