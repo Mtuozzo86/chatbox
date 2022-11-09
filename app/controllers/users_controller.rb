@@ -15,11 +15,11 @@ class UsersController < ApplicationController
     def addcontact
       room = Conversation.find_by(id: params[:roomId])
       user = User.find_by(user_name: params[:contact])
-      if user.valid?
-      room.users << user
+      if user
+      room.users << user unless room.users.include?(user) #if a user already belongs to a room, don't add
       render json: user
       else
-      render json: {error: 'nobody found'}, status: :not_found
+      render json: {error: 'Nobody found, users names are case-sensitive'}, status: :not_found
       end
     end
 

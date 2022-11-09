@@ -1,20 +1,16 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
 import NavBar from "./NavBar";
 
 function Profile({ user }) {
-
   return (
     <>
       <Card>
         <Card.Body>
           <Card.Header>{user.user_name}</Card.Header>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            You are successfully logged in.  Welcome to my chat app.  Create a room, invite multiple friends.
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          {/* <Button variant="primary">Go somewhere</Button> */}
         </Card.Body>
       </Card>
       <NavBar />
