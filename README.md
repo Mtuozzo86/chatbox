@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app allows users to mimic fuctionality of SMS messaging. Using websockets to render messages in real time between users, we can add multiple friends to a created room.
 
-Things you may want to cover:
+Once a user creates their user name, that name will be the identifiable search point for others to find them. Creating a room, and viewing that room opens up the feed of messages, and an option to add users. Users can add multiple users based on their user name, but is case sensitive at the moment.  If the user exists and is added, that user will see the room the next time they log in, or on a refresh.
 
-* Ruby version
+Live demo here deployed on Render.com
 
-* System dependencies
+Render is a software as a service platform for hosting websites, therefore loading the app may take several seconds longer than most apps.
 
-* Configuration
+<a href="https://chatbox-vj2i.onrender.com">Click here to see the app</a>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
