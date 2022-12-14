@@ -8,8 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Create({ onHandleUser }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([])
-  console.log(errors)
+  const [errors, setErrors] = useState([]);
 
   const history = useNavigate();
   const iconStyle = {
@@ -29,22 +28,25 @@ function Create({ onHandleUser }) {
           (data) => onHandleUser(data),
           setUserName(""),
           setPassword(""),
-          //goes to list of rooms and conversations <ChatRooms /> 
+          //goes to list of rooms and conversations <ChatRooms />
           history("/rooms")
         );
       } else {
-        r.json().then(errors => setErrors(errors))
-
+        r.json().then((errors) => setErrors(errors.error));
       }
     });
   }
 
   return (
-    <Container className="position-relative" style={{ height: 500 }}>
-      <div className="text-center my-5">
+    <Container className="" >
+      <div className="text-center py-5">
         <RiKakaoTalkLine style={iconStyle} size={100} />
       </div>
-      <Form className="d-grid gap-2 text-center mx-auto my-5 w-75 position-absolute top-50 start-50 translate-middle" onSubmit={handleSubmit}>
+      <h4 className="text-center">Create your account</h4>
+      <Form
+        className="d-grid gap-2 text-center mx-auto my-5 w-75 "
+        onSubmit={handleSubmit}
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control
@@ -73,7 +75,13 @@ function Create({ onHandleUser }) {
       <p className="text-center">
         Already have an account? Sign in <Link to="/login">here</Link>
       </p>
-
+      {errors && (
+        <ul className="text-center">
+          {errors.map((error) => (
+            <p style={{color: 'red'}} key={error}>{error}</p>
+          ))}
+        </ul>
+      )}
     </Container>
   );
 }
