@@ -39,11 +39,15 @@ function Login({ onHandleUser }) {
   }
 
   return (
-    <Container className="position-relative" style={{ height: 500 }}>
-      <div className="text-center my-5">
+    <Container className="">
+      <div className="text-center py-5">
         <RiKakaoTalkLine style={iconStyle} size={100} />
       </div>
-      <Form className="d-grid gap-2 text-center mx-auto my-5 w-75 position-absolute top-50 start-50 translate-middle" onSubmit={handleSubmit}>
+      <h4 className="text-center">Login</h4>
+      <Form
+        className="d-grid gap-2 text-center mx-auto my-5 w-75 "
+        onSubmit={handleSubmit}
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control

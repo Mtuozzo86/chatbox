@@ -15,11 +15,11 @@ function Welcome() {
     color: "01BAEF",
   };
   return (
-    <Container className="position-relative" style={{ height: 500 }}>
-      <div className="text-center my-5">
+    <Container>
+      <div className="text-center pt-5">
         <RiKakaoTalkLine style={iconStyle} size={100} />
       </div>
-      <div className="d-grid gap-2 text-center mx-auto my-5 w-75 position-absolute top-50 start-50 translate-middle">
+      <div className="d-grid gap-2 text-center w-75 position-absolute top-50 start-50 translate-middle">
         <NavLink style={linkStyle} to="login">
           <Button className="list-group-item-action">Login</Button>
         </NavLink>
