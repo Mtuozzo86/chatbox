@@ -7,8 +7,12 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_name: params[:userName], password: params[:password])
+        if user.valid?
         session[:user_id] = user.id
         render json: user
+        else
+          render json: {error: user.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     # Add a contact to a chat room

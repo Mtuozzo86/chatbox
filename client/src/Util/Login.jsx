@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
+import { RiKakaoTalkLine } from "react-icons/ri";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +11,9 @@ function Login({ onHandleUser }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState("")
   const history = useNavigate()
+  const iconStyle = {
+    color: "01BAEF",
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,9 +39,11 @@ function Login({ onHandleUser }) {
   }
 
   return (
-    <Container>
-      LOGIN
-      <Form onSubmit={handleSubmit}>
+    <Container className="position-relative" style={{ height: 500 }}>
+      <div className="text-center my-5">
+        <RiKakaoTalkLine style={iconStyle} size={100} />
+      </div>
+      <Form className="d-grid gap-2 text-center mx-auto my-5 w-75 position-absolute top-50 start-50 translate-middle" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control
@@ -53,7 +59,6 @@ function Login({ onHandleUser }) {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            placeholder="Password"
           />
         </Form.Group>
         <Button variant="outline-primary" type="submit">

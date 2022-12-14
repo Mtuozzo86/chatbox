@@ -1,15 +1,20 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
+import { RiKakaoTalkLine } from "react-icons/ri";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Create({onHandleUser}) {
+function Create({ onHandleUser }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([])
+  console.log(errors)
 
   const history = useNavigate();
-
+  const iconStyle = {
+    color: "01BAEF",
+  };
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/users", {
@@ -27,14 +32,19 @@ function Create({onHandleUser}) {
           //goes to list of rooms and conversations <ChatRooms /> 
           history("/rooms")
         );
+      } else {
+        r.json().then(errors => setErrors(errors))
+
       }
     });
   }
 
   return (
-    <Container>
-      CREATE
-      <Form onSubmit={handleSubmit}>
+    <Container className="position-relative" style={{ height: 500 }}>
+      <div className="text-center my-5">
+        <RiKakaoTalkLine style={iconStyle} size={100} />
+      </div>
+      <Form className="d-grid gap-2 text-center mx-auto my-5 w-75 position-absolute top-50 start-50 translate-middle" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User name</Form.Label>
           <Form.Control
