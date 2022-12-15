@@ -5,10 +5,9 @@ function Message({ body, userName, messageUserId, currentUser }) {
 const isCurrentUser = currentUser === messageUserId
 
   return (
-    
-    <div style={{textAlign: isCurrentUser && "right"}}>
+    <div style={{ textAlign: isCurrentUser && "right" }}>
       <div>
-        <em>{userName}</em>
+        <em className="fw-semibold">{userName}</em>
       </div>
       <div>{body}</div>
     </div>

@@ -14,8 +14,8 @@ function ChatRoom({ currentUser }) {
   const [roomName, setRoomName] = useState("");
   const bottom = useRef();
   const params = useParams();
-
   const cableContext = useContext(CableContext);
+
 
   useEffect(() => {
     const channel = cableContext.cable.subscriptions.create(
