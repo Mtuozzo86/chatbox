@@ -16,21 +16,31 @@ function ChatRooms({ user, onChooseRoom }) {
 
   const rooms = listOfRooms.map((room) => {
     return (
-      <ChatroomName key={room.id} roomTitle={room.room_name} roomId={room.id} user={user} onChooseRoom={onChooseRoom } />
+      <ChatroomName
+        key={room.id}
+        roomTitle={room.room_name}
+        roomId={room.id}
+        user={user}
+        onChooseRoom={onChooseRoom}
+      />
     );
   });
 
   return (
     <div>
       <TopNavbar />
-      {rooms}
-      <div className="position-relative" style={{ height: 450 }}>
+      <div
+        className="position-relative"
+        style={{ height: 520, overflow: "auto" }}
+      >
+        {rooms}
         <LinkContainer to="/createroom">
-          <AiFillPlusCircle
-            className="position-absolute bottom-0 end-0 me-2"
-            color="#0d6efd"
-            size={55}
-          />
+          <div className="d-grid position-sticky bottom-0 justify-content-end">
+            <AiFillPlusCircle
+              color="#0d6efd"
+              size={60}
+            />
+          </div>
         </LinkContainer>
       </div>
       <NavBar />
