@@ -37,6 +37,7 @@ function CreateRoom({ onCreateRoom }) {
               onChange={(e) => setRoomName(e.target.value)}
               type="text"
               placeholder="Name your room"
+              required
             />
           </Form.Group>
           <Button variant="outline-primary" type="submit">

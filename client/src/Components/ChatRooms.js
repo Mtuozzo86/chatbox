@@ -31,7 +31,7 @@ function ChatRooms({ user, onChooseRoom }) {
     <Container className="position-relative">
       <TopNavbar />
       <div className="d-grid">
-        <div style={{ height: 520, overflow: "auto" }}>{rooms}</div>
+        <div style={{ height: 480, overflow: "auto" }}>{rooms}</div>
         <div className="d-grid position-sticky bottom-0 end-0 justify-content-end">
           <LinkContainer to="/createroom">
             <AiFillPlusCircle color="#0d6efd" size={60} />
