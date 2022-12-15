@@ -20,7 +20,7 @@ function ChatroomName({ roomId, roomTitle, onChooseRoom }) {
           <Col className="col-2 text-center">
             <FaUsers size={24} />
           </Col>
-          <Col className="col-10">{roomTitle}</Col>
+          <Col className="col-10 border-bottom ">{roomTitle}</Col>
         </Row>
       </LinkContainer>
     </Container>
