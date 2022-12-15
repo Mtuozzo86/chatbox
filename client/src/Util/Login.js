@@ -39,7 +39,7 @@ function Login({ onHandleUser }) {
   }
 
   return (
-    <Container className="">
+    <Container>
       <div className="text-center py-5">
         <RiKakaoTalkLine style={iconStyle} size={100} />
       </div>
@@ -69,7 +69,8 @@ function Login({ onHandleUser }) {
           Login
         </Button>
       </Form>
-      {errors && <p>{errors.error}</p>}
+      
+      {errors && <p className="text-center">{errors.error}</p>}
     </Container>
   );
 }
