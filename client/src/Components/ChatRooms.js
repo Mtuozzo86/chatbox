@@ -4,6 +4,7 @@ import ChatroomName from "./ChatroomName";
 import TopNavbar from "./TopNavbar";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { LinkContainer } from "react-router-bootstrap";
+import Container from "react-bootstrap/esm/Container";
 
 function ChatRooms({ user, onChooseRoom }) {
   const [listOfRooms, setListofRooms] = useState([]);
@@ -27,7 +28,7 @@ function ChatRooms({ user, onChooseRoom }) {
   });
 
   return (
-    <div>
+    <Container>
       <TopNavbar />
       <div
         className="position-relative"
@@ -35,16 +36,13 @@ function ChatRooms({ user, onChooseRoom }) {
       >
         {rooms}
         <LinkContainer to="/createroom">
-          <div className="d-grid position-sticky bottom-0 justify-content-end">
-            <AiFillPlusCircle
-              color="#0d6efd"
-              size={60}
-            />
+          <div className="d-grid position-sticky bottom-0 end-0 justify-content-end">
+            <AiFillPlusCircle color="#0d6efd" size={60} />
           </div>
         </LinkContainer>
       </div>
       <NavBar />
-    </div>
+    </Container>
   );
 }
 
