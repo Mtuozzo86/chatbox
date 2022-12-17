@@ -69,9 +69,10 @@ function ChatRoom({ currentUser }) {
 
   return (
     <>
-      <TopNavbar roomName={roomName} />
+      <TopNavbar/>
       <Container fluid>
-        <div className="p-3 card-header d-flex justify-content-end">
+        <div className="p-3 card-header d-flex justify-content-between">
+          {roomName}
           <Link to="/addcontact" state={params.roomId}>
             <AiOutlineUserAdd className="text-end" color="01BAEF" size={30} />
           </Link>
