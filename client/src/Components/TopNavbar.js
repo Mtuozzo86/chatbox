@@ -15,7 +15,7 @@ function TopNavbar({ roomName, backArrow }) {
     }).then(navigate("/"));
   }
   return (
-    <Navbar bg="light">
+    <Navbar bg="light" className="shadow p-3 mb-1 bg-body rounded">
       <Container>
         <Navbar.Brand>
           {roomName ? (

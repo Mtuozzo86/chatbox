@@ -8,21 +8,22 @@ import { LinkContainer } from "react-router-bootstrap";
 
 function NavBar() {
   return (
-    <Navbar bg="primary" variant="dark" fixed="bottom">
-      <Container className="justify-content-center gap-2">
+    // <Navbar bg="primary" variant="dark" fixed="bottom">
+    <Container fluid className="p-0 m-0">
+      <Navbar bg="primary" variant="dark">
         <LinkContainer to="/rooms">
-          <Button className="flex-fill" >
+          <Button className="flex-fill">
             <AiFillWechat size={26} color="white" />
           </Button>
         </LinkContainer>
 
         <LinkContainer to="/user">
-          <Button className="flex-fill" >
+          <Button className="flex-fill">
             <AiOutlineUser size={26} color="white" />
           </Button>
         </LinkContainer>
-      </Container>
-    </Navbar>
+      </Navbar>
+    </Container>
   );
 }
 

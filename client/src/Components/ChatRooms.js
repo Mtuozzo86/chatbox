@@ -28,20 +28,20 @@ function ChatRooms({ user, onChooseRoom }) {
   });
 
   return (
-    <Container className="position-relative">
+    <Container fluid className="d-flex flex-column position-relative p-0">
       <TopNavbar />
-      <div className="d-grid">
-        <div style={{ height: 480, overflow: "auto" }}>{rooms}</div>
-        <div className="d-grid position-sticky bottom-0 end-0 justify-content-end">
+      <div className="d-flex flex-column">
+        <div style={{ height: 500, overflow: "auto" }}>{rooms}</div>
+        <nav className="d-flex position-fixed bottom-0 flex-column w-100 align-items-end gap-5">
+        {/* <nav className="d-flex flex-column"> */}
           <LinkContainer to="/createroom">
             <AiFillPlusCircle color="#0d6efd" size={60} />
           </LinkContainer>
-        </div>
+          <NavBar />
+        </nav>
       </div>
-      <NavBar />
     </Container>
   );
 }
 
 export default ChatRooms;
-

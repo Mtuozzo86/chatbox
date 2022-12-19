@@ -15,8 +15,8 @@ function ChatroomName({ roomId, roomTitle, onChooseRoom }) {
 
   return (
     <Container>
-      <LinkContainer to={`/rooms/${roomId}`}>
-        <Row className="p-2">
+      <LinkContainer className="pe-auto" to={`/rooms/${roomId}`}>
+        <Row className="p-2" role='button'>
           <Col className="col-2 text-center">
             <FaUsers size={24} />
           </Col>

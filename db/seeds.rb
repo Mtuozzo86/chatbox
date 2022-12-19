@@ -8,6 +8,9 @@
 
 mike = User.create(user_name: "Mike", password: "rooster")
 homer = User.create(user_name: "Homer", password: "rooster")
+15.times do 
+    mike.conversations.create(room_name: 'test')
+end
 # room1 = Conversation.create(room_name: "Test Room")
 # room2 = Conversation.create(room_name: "Test Room2")
 # room1.chat_messages.create(body: "Hello", user_id: mike.id)
