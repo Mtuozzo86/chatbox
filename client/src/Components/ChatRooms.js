@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import ChatroomName from "./ChatroomName";
 import TopNavbar from "./TopNavbar";
 import { AiFillPlusCircle } from "react-icons/ai";
+import { BsFillPlusCircleFill } from "react-icons/bs";
 import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/esm/Container";
 
@@ -32,10 +33,16 @@ function ChatRooms({ user, onChooseRoom }) {
       <TopNavbar />
       <div className="d-flex flex-column">
         <div style={{ height: 500, overflow: "auto" }}>{rooms}</div>
-        <nav className="d-flex position-fixed bottom-0 flex-column w-100 align-items-end gap-5">
-        {/* <nav className="d-flex flex-column"> */}
-          <LinkContainer to="/createroom">
-            <AiFillPlusCircle color="#0d6efd" size={60} />
+        <nav className="d-flex position-fixed bottom-0 flex-column w-100 align-items-end gap-4">
+          <LinkContainer
+            style={{ borderRadius: "100%", boxShadow: "0px 0px 16px black" }}
+            to="/createroom"
+          >
+            <BsFillPlusCircleFill
+              className="me-3"
+              color="#0d6efd"
+              size={60}
+            />
           </LinkContainer>
           <NavBar />
         </nav>
