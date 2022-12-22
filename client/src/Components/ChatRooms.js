@@ -33,8 +33,9 @@ function ChatRooms({ user, onChooseRoom }) {
       <TopNavbar />
       <div className="d-flex flex-column">
         <div style={{ height: 500, overflow: "auto" }}>{rooms}</div>
-        <nav className="d-flex position-fixed bottom-0 flex-column w-100 align-items-end gap-4">
+        <nav className="d-flex position-fixed bottom-0 flex-column w-100  gap-4">
           <LinkContainer
+          className='align-self-end'
             style={{ borderRadius: "100%", boxShadow: "0px 0px 16px black" }}
             to="/createroom"
           >

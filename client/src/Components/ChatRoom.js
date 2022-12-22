@@ -68,9 +68,8 @@ function ChatRoom({ currentUser }) {
   }
 
   return (
-    <>
+      <Container fluid className="d-flex flex-column p-0">
       <TopNavbar/>
-      <Container fluid>
         <div className="p-3 card-header d-flex justify-content-between">
           {roomName}
           <Link to="/addcontact" state={params.roomId}>
@@ -78,13 +77,12 @@ function ChatRoom({ currentUser }) {
           </Link>
         </div>
         <Card>
-          <Card.Body className="overflow-auto" style={{ height: 450 }}>
+          <Card.Body className="overflow-auto" style={{ height: '60vh' }}>
             {listOfMessages}
           </Card.Body>
         </Card>
-      </Container>
       <SendMessage onSend={handleSend} roomId={params.roomId} />
-    </>
+      </Container>
   );
 }
 
