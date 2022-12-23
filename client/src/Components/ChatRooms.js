@@ -29,13 +29,12 @@ function ChatRooms({ user, onChooseRoom }) {
   });
 
   return (
-    <Container fluid className="d-flex flex-column position-relative p-0">
+    <Container style={{height: '100vh'}} fluid className="d-flex flex-column p-0 position-relative">
       <TopNavbar />
-      <div className="d-flex flex-column">
-        <div style={{ height: 500, overflow: "auto" }}>{rooms}</div>
-        <nav className="d-flex position-fixed bottom-0 flex-column w-100  gap-4">
-          <LinkContainer
-          className='align-self-end'
+      <div style={{height: '100%',overflow: "auto"}}>{rooms}</div>
+      <nav className="w-100">
+        <LinkContainer
+          className='add-room-button'
             style={{ borderRadius: "100%", boxShadow: "0px 0px 16px black" }}
             to="/createroom"
           >
@@ -45,9 +44,8 @@ function ChatRooms({ user, onChooseRoom }) {
               size={60}
             />
           </LinkContainer>
-          <NavBar />
-        </nav>
-      </div>
+        <NavBar />
+      </nav>
     </Container>
   );
 }
